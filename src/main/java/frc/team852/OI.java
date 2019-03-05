@@ -78,26 +78,5 @@ public class OI {
     FieldPaths.genPaths();
     xboxLB.whenPressed(new ToggleGearbox(RobotMap.SLOW));
     xboxRB.whenPressed(new ToggleGearbox(RobotMap.FAST));
-
-    fightStickLB.whileHeld(new ElevatorMoveBangBang());
-    //fightStickRB.whileHeld(new ElevatorMove());
-
-    fightStickX.whenPressed(new ElevatorMove(ElevatorHeight.HATCH_LOW));
-    fightStickY.whenPressed(new ElevatorMove(ElevatorHeight.HATCH_MID));
-    fightStickRB.whenPressed(new ElevatorMove(ElevatorHeight.HATCH_HIGH));
-    //fightStickLT.whenActive(new ElevatorMove(ElevatorHeight.CARGO_SHIP));
-    fightStickA.whenPressed(new ElevatorMove(ElevatorHeight.CARGO_LOW));
-    fightStickB.whenPressed(new ElevatorMove(ElevatorHeight.CARGO_MID));
-    //fightStickRT.whenActive(new ElevatorMove(ElevatorHeight.CARGO_HIGH));
-
-    //Climb Hab 2
-    fightStickOption.whenPressed(new TimedClimb());
-    
-    xboxY.whenPressed(new Ball());
-
-    xboxStart.whenPressed(new TogglePogo());
-
   }
-
-
 }

@@ -27,21 +27,7 @@ public class RobotMap {
   public static Encoder rightGrayhill = new Encoder(0, 1, true);
   public static DoubleSolenoid gearbox = new DoubleSolenoid(7, 6); // TODO set based off of robot wiring
 
-  //Elevator
-  public static SparkMax elevatorMotor = new SparkMax(4, SparkMax.MotorType.kBrushless); // TODO set based off of CAN id
-  public static DigitalInput elevatorLowerLimit = new DigitalInput(15); // TODO set based off of robot wiring
-  public static DigitalInput elevatorUpperLimit = new DigitalInput(5); // TODO set based off of robot wiring
-  public static SerialLidar elevatorLidar = Robot.elevatorLidar;
 
-  //Wrist
-  public static WPI_TalonSRX wristMotor = new WPI_TalonSRX(6); // TODO set based off of CAN id
-
-  //Climber Subsystem
-  public static WPI_TalonSRX climberMotor = new WPI_TalonSRX(5); // TODO set based off of CAN id
-  public static DoubleSolenoid pogoBoi = new DoubleSolenoid(4, 5);
-  
-  //Ball subsystem
-  public static DoubleSolenoid sucker = new DoubleSolenoid(2, 3); //TODO may need to reverse
   public static AHRS gyro = Robot.gyro;
 
 

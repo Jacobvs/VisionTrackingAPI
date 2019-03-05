@@ -27,21 +27,13 @@ public class Robot extends TimedRobot {
   //Subsystems
   public static Drivetrain drivetrain;
   public static DoubleSolenoid.Value gearstate;
-  public static ElevatorSubsystem elevatorSubsystem;
-  public static WristSubsystem wristSubsystem;
-//  public static CargoSubsystem cargoSubsystem;
-  //public static HatchSubsystem hatchSubsystem;
-  public static ClimberSubsystem climberSubsystem;
   public static LedStrip statusLeds;
-  public static BallSubsystem ballSubsystem;
 
   //Sensors
   public static AHRS_PID gyro;
-  public static SerialLidar elevatorLidar;
 
   //Data
   public static CVDataServer dataServer;
-  public static CVDataStore dataStore;
 
   //Other
   private static final String kDefaultAuto = "Default";
@@ -65,14 +57,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     robotStarted.set(true);
-    try {
-      elevatorLidar = new SerialLidar(9600, SerialPort.Port.kUSB);
-      Timer.delay(1);
-      elevatorLidar.setReadBufferSize(10);
-    }
-    catch (RuntimeException ex){
-      DriverStation.reportError("Error initializing Elevator Lidar! " + ex.getMessage(), true);
-    }
 
     try {
       gyro = new AHRS_PID(I2C.Port.kOnboard);
@@ -89,13 +73,7 @@ public class Robot extends TimedRobot {
     }
 
     drivetrain = new Drivetrain();
-    elevatorSubsystem = new ElevatorSubsystem();
-    wristSubsystem = new WristSubsystem();
-//    cargoSubsystem = new CargoSubsystem();
-    //hatchSubsystem = new HatchSubsystem();
-    climberSubsystem = new ClimberSubsystem();
     statusLeds = new LedStrip();
-    ballSubsystem = new BallSubsystem();
 
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
@@ -103,10 +81,6 @@ public class Robot extends TimedRobot {
 
 
     RobotMap.gearbox.set(RobotMap.SLOW);
-    RobotMap.pogoBoi.set(DoubleSolenoid.Value.kReverse);
-
-    //RobotMap.wristEncoder.setDistancePerPulse(1/319D);
-    //RobotMap.wristEncoder.reset();
 
     oi = new OI(); // Must be defined last
 
